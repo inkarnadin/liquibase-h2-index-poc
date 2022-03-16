@@ -1,0 +1,19 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet id="1" author="inkarnadin">
+        <createTable tableName="test_table">
+            <column name="id" type="int"/>
+            <column name="create_date" type="date"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="inkarnadin">
+        <createIndex tableName="test_table" indexName="test_table_id_idx">
+            <column name="(date_trunc('day', create_date))"/>
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>
